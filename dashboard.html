@@ -532,6 +532,63 @@
             z-index: 1;
         }
 
+     /* Footer Styles */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: var(--space-12) 0 var(--space-8);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-logo {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            color: var(--white);
+        }
+
+        .footer-logo span {
+            color: var(--primary-blue);
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: var(--space-4);
+            font-size: var(--font-size-lg);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: var(--space-2);
+        }
+
+        .footer-links ul li a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--gray-700);
+            color: var(--gray-400);
+            font-size: var(--font-size-sm);
+        }
+
         /* Utility Classes */
         .text-center { text-align: center; }
         .text-right { text-align: right; }
