@@ -101,6 +101,33 @@
         }
 
         /* Header Styles */
+        /* Hide nav on small screens, show hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .nav-primary {
+        display: none; /* hide desktop nav */
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--white);
+        box-shadow: var(--shadow-sm);
+        padding: var(--space-4) 0;
+    }
+
+    .nav-primary.active {
+        display: flex; /* show when toggled */
+    }
+
+    .menu-toggle {
+        display: block; /* show hamburger */
+    }
         .header {
             height: var(--header-height);
             background: var(--white);
