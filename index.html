@@ -867,14 +867,17 @@
 
             // Demo signup functionality
             const signupBtn = document.querySelector('.btn-primary[href="signup.html"]');
-            if (signupBtn) {
+            
+            if (signupBtn && typeof showNotification === 'function') {
                 signupBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     showNotification('Redirecting to signup page...', 'info');
+            
+                    const delay = 1000; // 1 second delay
                     setTimeout(() => {
-                        // In a real app, this would redirect to signup page
-                        showNotification('Demo: This would redirect to the signup page', 'success');
-                    }, 1000);
+                        showNotification('Demo: Redirecting now!', 'success');
+                        window.location.href = 'signup.html'; // Actually redirects
+                    }, delay);
                 });
             }
 
