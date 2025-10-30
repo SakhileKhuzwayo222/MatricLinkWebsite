@@ -1,0 +1,1123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Matric Link</title>
+    <style>
+        /* Design System Variables */
+        :root {
+            /* Primary Colors */
+            --primary-blue: #3498db;
+            --primary-dark: #2c3e50;
+            --primary-light: #ecf0f1;
+            
+            /* Secondary Colors */
+            --accent-red: #e74c3c;
+            --accent-green: #2ecc71;
+            --accent-orange: #f39c12;
+            --accent-purple: #9b59b6;
+            
+            /* Neutral Colors */
+            --white: #ffffff;
+            --gray-50: #f8f9fa;
+            --gray-100: #e9ecef;
+            --gray-200: #dee2e6;
+            --gray-300: #ced4da;
+            --gray-500: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            
+            /* Semantic Colors */
+            --success: var(--accent-green);
+            --warning: var(--accent-orange);
+            --error: var(--accent-red);
+            --info: var(--primary-blue);
+            
+            /* Typography */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            
+            /* Spacing */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-base: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Layout */
+            --header-height: 70px;
+            --sidebar-width: 280px;
+            --max-content-width: 1200px;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--gray-900);
+            background-color: var(--gray-50);
+        }
+
+        /* Layout Components */
+        .container {
+            max-width: var(--max-content-width);
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        /* Header Styles */
+        .header {
+            height: var(--header-height);
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            border-radius: var(--radius-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: var(--font-size-lg);
+        }
+
+        .logo-text {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .logo-text span {
+            color: var(--primary-blue);
+        }
+
+        /* Navigation */
+        .nav-primary {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .nav-link {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-base);
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-blue);
+            background-color: var(--primary-light);
+        }
+
+        /* User Navigation */
+        .user-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-top: var(--header-height);
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr;
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        .sidebar {
+            background: var(--white);
+            border-right: 1px solid var(--gray-200);
+            padding: var(--space-8) 0;
+            position: sticky;
+            top: var(--header-height);
+            height: calc(100vh - var(--header-height));
+            overflow-y: auto;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+            padding: 0 var(--space-6);
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            padding: var(--space-4) var(--space-5);
+            text-decoration: none;
+            color: var(--gray-700);
+            border-radius: var(--radius-lg);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: var(--primary-light);
+            color: var(--primary-blue);
+        }
+
+        .sidebar-link i {
+            font-size: var(--font-size-lg);
+            width: 24px;
+            text-align: center;
+        }
+
+        .dashboard-content {
+            padding: var(--space-8);
+            background: var(--gray-50);
+        }
+
+        /* Card Components */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            margin-bottom: var(--space-8);
+        }
+
+        .card-header {
+            padding: var(--space-6);
+            border-bottom: 1px solid var(--gray-200);
+            background: var(--white);
+        }
+
+        .card-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+
+        .card-body {
+            padding: var(--space-6);
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-6);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: var(--space-4);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-2);
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--space-3) var(--space-4);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-blue);
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-light);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-4);
+            color: var(--primary-blue);
+            font-size: var(--font-size-xl);
+        }
+
+        .feature-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+            color: var(--primary-dark);
+        }
+
+        /* Profile Header */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+        }
+
+        .user-avatar-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: var(--font-size-2xl);
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        /* Interests Grid */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-3);
+        }
+
+        .interest-option {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .interest-option:hover {
+            border-color: var(--primary-blue);
+            background-color: var(--primary-light);
+        }
+
+        .interest-option input[type="checkbox"] {
+            margin: 0;
+        }
+
+        /* Courses Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-6);
+        }
+
+        .course-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-blue);
+        }
+
+        .course-header {
+            padding: var(--space-5);
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+            color: var(--white);
+            position: relative;
+        }
+
+        .course-title {
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+        }
+
+        .course-institution {
+            opacity: 0.9;
+            font-size: var(--font-size-sm);
+        }
+
+        .course-body {
+            padding: var(--space-5);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: var(--gray-200);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-purple));
+            border-radius: var(--radius-xl);
+            transition: width 0.3s ease;
+        }
+
+        /* Status Indicators */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+
+        .status-complete {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .status-in-progress {
+            background: var(--warning);
+            color: var(--white);
+        }
+
+        .status-pending {
+            background: var(--gray-300);
+            color: var(--gray-700);
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-left { text-align: left; }
+        .mb-0 { margin-bottom: 0; }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-6 { margin-bottom: var(--space-6); }
+        .mb-8 { margin-bottom: var(--space-8); }
+        .mt-4 { margin-top: var(--space-4); }
+        .mt-6 { margin-top: var(--space-6); }
+        .mt-8 { margin-top: var(--space-8); }
+        .highlight { color: var(--success); font-weight: 600; }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .courses-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-primary {
+                display: none;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .dashboard-content {
+                padding: var(--space-4);
+            }
+            
+            .card-header,
+            .card-body {
+                padding: var(--space-4);
+            }
+            
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-4);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-card,
+            .course-card {
+                padding: var(--space-4);
+            }
+            
+            .container {
+                padding: 0 var(--space-4);
+            }
+            
+            .btn {
+                padding: var(--space-3) var(--space-4);
+                font-size: var(--font-size-sm);
+            }
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--gray-200);
+            border-top: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: var(--space-4);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-message {
+            font-size: var(--font-size-lg);
+            color: var(--gray-700);
+            font-weight: 500;
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--success);
+            color: var(--white);
+            padding: var(--space-4) var(--space-6);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            max-width: 400px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .notification.error {
+            background: var(--error);
+        }
+
+        .notification.warning {
+            background: var(--warning);
+        }
+
+        .notification.info {
+            background: var(--info);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Card Animations */
+        .card {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Styling Enhancements */
+        .form-group label input[type="checkbox"] {
+            margin-right: var(--space-2);
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: var(--space-1);
+            color: var(--gray-500);
+            font-size: var(--font-size-sm);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">ML</div>
+                    <div class="logo-text">Matric<span>Link</span></div>
+                </a>
+                
+                <nav class="nav-primary">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    <a href="course-recommendations.html" class="nav-link">Courses</a>
+                    <a href="institution-portals.html" class="nav-link">Institutions</a>
+                    <a href="results-submission.html" class="nav-link">Submit Results</a>
+                </nav>
+                
+                <div class="user-nav">
+                    <div class="user-avatar">JS</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <a href="dashboard.html" class="sidebar-link">
+                        <i>📊</i> Overview
+                    </a>
+                    <a href="results-submission.html" class="sidebar-link">
+                        <i>📝</i> Submit Results
+                    </a>
+                    <a href="course-recommendations.html" class="sidebar-link">
+                        <i>🎯</i> Course Recommendations
+                    </a>
+                    <a href="institution-portals.html" class="sidebar-link">
+                        <i>🏫</i> Institutions
+                    </a>
+                    <a href="profile.html" class="sidebar-link active">
+                        <i>👤</i> My Profile
+                    </a>
+                </nav>
+            </aside>
+
+            <div class="dashboard-content">
+                <!-- Profile Header -->
+                <div class="card mb-8">
+                    <div class="card-header">
+                        <div class="profile-header">
+                            <div class="user-avatar-large">JS</div>
+                            <div class="profile-info">
+                                <h2 class="card-title">John Student</h2>
+                                <p>Matriculant 2024 | Johannesburg, Gauteng</p>
+                                <p class="highlight">Member since: January 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">📊</div>
+                                <h4>Academic Profile</h4>
+                                <p><strong>Average:</strong> 76%</p>
+                                <p><strong>Subjects:</strong> 7 Completed</p>
+                                <p><strong>Status:</strong> Results Submitted</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🎯</div>
+                                <h4>Applications</h4>
+                                <p><strong>Courses Applied:</strong> 3</p>
+                                <p><strong>Institutions:</strong> 2</p>
+                                <p><strong>Status:</strong> In Progress</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">⭐</div>
+                                <h4>Achievements</h4>
+                                <p><strong>Profile Complete:</strong> 85%</p>
+                                <p><strong>Recommendations:</strong> 5 Courses</p>
+                                <p><strong>Match Score:</strong> 92%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-grid mb-8">
+                    <!-- Personal Information -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Personal Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="personalInfoForm">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" value="John Student">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" value="john.student@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" value="+27 83 123 4567">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">ID Number</label>
+                                    <input type="text" class="form-control" value="050101 1234 567">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Physical Address</label>
+                                    <textarea class="form-control" rows="3">123 Main Street, Johannesburg, 2000</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Information</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Academic Information -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Academic Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="academicInfoForm">
+                                <div class="form-group">
+                                    <label class="form-label">High School</label>
+                                    <input type="text" class="form-control" value="Parktown High School for Girls">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Province</label>
+                                    <select class="form-control">
+                                        <option>Gauteng</option>
+                                        <option>Western Cape</option>
+                                        <option>KwaZulu-Natal</option>
+                                        <option>Eastern Cape</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Matric Year</label>
+                                    <select class="form-control">
+                                        <option>2024</option>
+                                        <option>2023</option>
+                                        <option>2022</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Curriculum</label>
+                                    <select class="form-control">
+                                        <option>NSC (National Senior Certificate)</option>
+                                        <option>IEB (Independent Examination Board)</option>
+                                        <option>Cambridge</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Academic Info</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Preferences -->
+                <div class="card mb-8">
+                    <div class="card-header">
+                        <h3 class="card-title">Career Preferences & Interests</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="careerPreferencesForm">
+                            <div class="form-group">
+                                <label class="form-label">Career Interests</label>
+                                <div class="interests-grid">
+                                    <label class="interest-option">
+                                        <input type="checkbox" name="interests" value="technology" checked>
+                                        <span>Technology & IT</span>
+                                    </label>
+                                    <label class="interest-option">
+                                        <input type="checkbox" name="interests" value="engineering" checked>
+                                        <span>Engineering</span>
+                                    </label>
+                                    <label class="interest-option">
+                                        <input type="checkbox" name="interests" value="business">
+                                        <span>Business & Commerce</span>
+                                    </label>
+                                    <label class="interest-option">
+                                        <input type="checkbox" name="interests" value="health">
+                                        <span>Health Sciences</span>
+                                    </label>
+                                    <label class="interest-option">
+                                        <input type="checkbox" name="interests" value="arts">
+                                        <span>Arts & Humanities</span>
+                                    </label>
+                                    <label class="interest-option">
+                                        <input type="checkbox" name="interests" value="sciences">
+                                        <span>Natural Sciences</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Preferred Institution Types</label>
+                                <div>
+                                    <label><input type="checkbox" name="institution_type" value="university" checked> University</label>
+                                    <label><input type="checkbox" name="institution_type" value="university_of_technology"> University of Technology</label>
+                                    <label><input type="checkbox" name="institution_type" value="college"> TVET College</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Preferred Study Locations</label>
+                                <select class="form-control" multiple>
+                                    <option value="gauteng" selected>Gauteng</option>
+                                    <option value="western_cape" selected>Western Cape</option>
+                                    <option value="kzn">KwaZulu-Natal</option>
+                                    <option value="eastern_cape">Eastern Cape</option>
+                                </select>
+                                <small>Hold Ctrl/Cmd to select multiple locations</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Study Mode Preference</label>
+                                <select class="form-control">
+                                    <option value="full_time">Full-time</option>
+                                    <option value="part_time">Part-time</option>
+                                    <option value="distance">Distance Learning</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save Preferences</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Application History -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Application History</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="courses-grid">
+                            <div class="course-card">
+                                <div class="course-header">
+                                    <h4 class="course-title">Computer Science</h4>
+                                    <p class="course-institution">University of Cape Town</p>
+                                    <span class="status-badge status-in-progress">In Progress</span>
+                                </div>
+                                <div class="course-body">
+                                    <p><strong>Applied:</strong> 15 August 2024</p>
+                                    <p><strong>Status:</strong> Documents Under Review</p>
+                                    <p><strong>Next Step:</strong> Awaiting response</p>
+                                    <div class="progress-bar mb-4">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <button class="btn btn-primary">View Application</button>
+                                </div>
+                            </div>
+
+                            <div class="course-card">
+                                <div class="course-header">
+                                    <h4 class="course-title">Electrical Engineering</h4>
+                                    <p class="course-institution">Wits University</p>
+                                    <span class="status-badge status-pending">Pending</span>
+                                </div>
+                                <div class="course-body">
+                                    <p><strong>Applied:</strong> 20 August 2024</p>
+                                    <p><strong>Status:</strong> Application Submitted</p>
+                                    <p><strong>Next Step:</strong> Upload documents</p>
+                                    <div class="progress-bar mb-4">
+                                        <div class="progress-fill" style="width: 30%"></div>
+                                    </div>
+                                    <button class="btn btn-primary">Continue Application</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Profile Page JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize form interactions
+            initializeFormInteractions();
+            
+            // Add animation to cards
+            animateCards();
+            
+            // Load user data
+            loadUserData();
+        });
+
+        // Initialize form interactions
+        function initializeFormInteractions() {
+            const forms = document.querySelectorAll('form');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    handleFormSubmit(this);
+                });
+            });
+            
+            // Add focus effects to form controls
+            const formControls = document.querySelectorAll('.form-control');
+            formControls.forEach(control => {
+                control.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                control.addEventListener('blur', function() {
+                    this.parentElement.classList.remove('focused');
+                });
+            });
+        }
+
+        // Handle form submission
+        function handleFormSubmit(form) {
+            showLoading('Saving changes...');
+            
+            setTimeout(() => {
+                hideLoading();
+                showNotification('Profile updated successfully!', 'success');
+                
+                // In a real app, we would send the data to a server
+                const formData = new FormData(form);
+                const formId = form.id;
+                
+                // Save to localStorage for demo purposes
+                const profileData = JSON.parse(localStorage.getItem('matricLinkProfile') || '{}');
+                profileData[formId] = Object.fromEntries(formData);
+                localStorage.setItem('matricLinkProfile', JSON.stringify(profileData));
+            }, 1500);
+        }
+
+        // Load user data
+        function loadUserData() {
+            const savedProfile = localStorage.getItem('matricLinkProfile');
+            if (savedProfile) {
+                const profileData = JSON.parse(savedProfile);
+                // In a real app, we would populate the forms with saved data
+            }
+        }
+
+        // Animate cards on load
+        function animateCards() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        }
+
+        // Utility Functions
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll('.notification');
+            existingNotifications.forEach(notification => notification.remove());
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        function showLoading(message = 'Loading...') {
+            // Create loading overlay
+            const loadingOverlay = document.createElement('div');
+            loadingOverlay.className = 'loading-overlay';
+            loadingOverlay.innerHTML = `
+                <div class="loading-spinner"></div>
+                <div class="loading-message">${message}</div>
+            `;
+
+            document.body.appendChild(loadingOverlay);
+        }
+
+        function hideLoading() {
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            if (loadingOverlay) {
+                loadingOverlay.remove();
+            }
+        }
+
+        // Add hover effects and animations
+        const interactiveElements = document.querySelectorAll('.card, .feature-card, .btn, .interest-option');
+        interactiveElements.forEach(element => {
+            element.style.transition = 'all 0.3s ease';
+        });
+    </script>
+</body>
+</html>
