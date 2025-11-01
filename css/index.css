@@ -86,6 +86,11 @@
             color: var(--gray-900);
             background-color: var(--gray-50);
         }
+        header {
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    
+    }
            .logo {
       font-weight: 700;
       font-size: 1.5rem;
@@ -94,7 +99,7 @@
     }
 
     .logo span { color: var(--secondary); }
-    
+
         /* Layout Components */
         .container {
             max-width: var(--max-content-width);
@@ -106,6 +111,7 @@
         .header {
             height: var(--header-height);
             background: var(--white);
+            padding: var(--space-4);
             border-bottom: 1px solid var(--gray-200);
             position: fixed;
             top: 0;
