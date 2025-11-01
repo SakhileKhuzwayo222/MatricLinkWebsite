@@ -1,4 +1,15 @@
-
+ :root {
+      --primary: #007bff;
+      --secondary: #6c757d;
+      --white: #fff;
+      --gray-100: #f8f9fa;
+      --gray-200: #e9ecef;
+      --gray-300: #dee2e6;
+      --gray-700: #495057;
+      --radius-base: 8px;
+      --space-4: 1rem;
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
 
     * { box-sizing: border-box; }
 
